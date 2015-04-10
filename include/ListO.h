@@ -1,8 +1,4 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
+
 #ifndef LISTO_H_INCLUDED
 #define LISTO_H_INCLUDED
 #include <exception>
@@ -11,6 +7,7 @@
 
 #include "Fotografo.h"
 #include "Obra.h"
+#include "Node.h"
 
 using namespace std;
 

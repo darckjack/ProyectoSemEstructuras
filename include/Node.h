@@ -1,8 +1,4 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
+
 #ifndef NODE_H
 #define NODE_H
 
@@ -17,10 +13,8 @@ public:
   Node(T);
   ~Node();
 
-private:
-  Node *next;
-  Node *prev;
-  T data;
+  T* getDataPtr();
+  void setDataPtr(T*);
 
   T getData();
   void setData(T);
@@ -31,12 +25,19 @@ private:
   Node* getPrev();
   void setPrev(Node*);
 
+  T* dataptr;
+
+private:
+  Node *next;
+  Node *prev;
+
+
 };
 
 // Constructor por defecto
 template<class T>
 Node<T>::Node() {
-  data = nullptr;
+  dataptr = nullptr;
   next = nullptr;
   prev = nullptr;
 }
@@ -44,14 +45,19 @@ Node<T>::Node() {
 // Constructor por parámetro
 template<class T>
 Node<T>::Node(T data_) {
-  data = data_;
+  *dataptr = data_;
   next = nullptr;
   prev = nullptr;
 }
 
 template<class T>
 T Node<T>::getData() {
-  return data;
+  return *dataptr;
+}
+
+template<class T>
+T* Node<T>::getDataPtr() {
+  return dataptr;
 }
 
 template<class T>
@@ -66,7 +72,7 @@ Node<T>* Node<T>::getPrev() {
 
 template<class T>
 void Node<T>::setData(T data_) {
-  data = data_;
+  *dataptr = data_;
 }
 
 template<class T>

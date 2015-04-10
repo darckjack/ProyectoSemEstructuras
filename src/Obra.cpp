@@ -1,9 +1,5 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
-#include "Obra.h"
+
+#include "../include/Obra.h"
 
 Obra::Obra()
 {
@@ -35,3 +31,46 @@ Obra::~Obra()
 {
     //dtor
 }
+
+string Obra::getInfo(){
+  return "Nombre: " + name + ", Autor: " + author.to_s() + ", Camara: " + camera + \
+      ".";
+}
+
+string Obra::print(){
+  return getInfo();
+}
+
+bool Obra::operator == (Obra& a){
+  return getName() == a.getName();
+}
+
+bool Obra::operator != (Obra& a){
+  return getName() != a.getName();
+}
+
+bool Obra::operator < (Obra& a){
+  return getName() < a.getName();
+}
+
+bool Obra::operator <= (Obra& a){
+  return getName() <= a.getName();
+}
+
+bool Obra::operator > (Obra& a){
+  return getName() > a.getName();
+}
+
+bool Obra::operator >= (Obra& a){
+  return getName() >= a.getName();
+}
+
+ostream& operator << (ostream& os, Obra& a){
+  os << a.getInfo();
+  return os;
+}
+
+istream& operator >> (istream&, const Obra&){
+
+}
+

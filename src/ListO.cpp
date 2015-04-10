@@ -1,10 +1,6 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
 
-#include "ListO.h"
+
+#include "../include/ListO.h"
 
 bool ListO::isAvalidPos(Node<Obra>* p) {
   Node<Obra>* aux = anchor;
@@ -34,12 +30,12 @@ bool ListO::isEmpty() {
 
 void ListO::insertData(Node<Obra>* p, Obra& e) {
   if (p != nullptr and !isAvalidPos(p)) {
-    throw ListException ("Posicion invalida al insertar");
+    throw ListOException ("Posicion invalida al insertar");
   }
 
   Node<Obra>* aux = new Node<Obra> (e);
   if (aux == nullptr) {
-    throw ListException("Memoria insufuciente al insertar");
+    throw ListOException("Memoria insufuciente al insertar");
 
     if (p == nullptr) {
       aux->setNext(anchor);
@@ -52,8 +48,8 @@ void ListO::insertData(Node<Obra>* p, Obra& e) {
 }
 
 void ListO::deleteData(Node<Obra>* p) {
-  if (!isValidPos(p)) {
-    throw ListException("Posicion es invalida al eliminar");
+  if (!isAvalidPos(p)) {
+    throw ListOException("Posicion es invalida al eliminar");
   }
 
   if (p == anchor) {
@@ -101,7 +97,7 @@ Node<Obra>* ListO::nextPos(Node<Obra>* p) {
 Node<Obra>* ListO::findData(Obra e) {
   Node<Obra>* aux = anchor;
 
-  while (aux != nullptr and aux->data != e) {
+  while (aux != nullptr and aux->getData() != e) {
     aux = aux->getNext();
   }
 
@@ -110,7 +106,7 @@ Node<Obra>* ListO::findData(Obra e) {
 
 Obra ListO::retrieve(Node<Obra>* p) {
   if (!isAvalidPos(p)) {
-    throw ListException("Error!, Posicion invalida");
+    throw ListOException("Error!, Posicion invalida");
   }
 
   return p->getData();
@@ -120,7 +116,7 @@ void ListO::print() {
   Node<Obra>* aux = anchor;
 
   while (aux != nullptr) {
-    cout << aux->getData() << endl;
+    cout << aux->getDataPtr()->print() << endl;
     aux = aux->getNext();
   }
 

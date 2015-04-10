@@ -1,10 +1,6 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
 
-#include "ListF.h"
+
+#include "../include/ListF.h"
 
 bool ListF::isAvalidPos(Node<Fotografo>* p) {
   Node<Fotografo>* aux = anchor;
@@ -34,12 +30,12 @@ bool ListF::isEmpty() {
 
 void ListF::insertData(Node<Fotografo>* p, Fotografo& e) {
   if (p != nullptr and !isAvalidPos(p)) {
-    throw ListException ("Posicion invalida al insertar");
+    throw ListFException ("Posicion invalida al insertar");
   }
 
   Node<Fotografo>* aux = new Node<Fotografo> (e);
   if (aux == nullptr) {
-    throw ListException("Memoria insufuciente al insertar");
+    throw ListFException("Memoria insufuciente al insertar");
 
     if (p == nullptr) {
       aux->setNext(anchor);
@@ -52,8 +48,8 @@ void ListF::insertData(Node<Fotografo>* p, Fotografo& e) {
 }
 
 void ListF::deleteData(Node<Fotografo>* p) {
-  if (!isValidPos(p)) {
-    throw ListException("Posicion es invalida al eliminar");
+  if (!isAvalidPos(p)) {
+    throw ListFException("Posicion es invalida al eliminar");
   }
 
   if (p == anchor) {
@@ -101,7 +97,7 @@ Node<Fotografo>* ListF::nextPos(Node<Fotografo>* p) {
 Node<Fotografo>* ListF::findData(Fotografo e) {
   Node<Fotografo>* aux = anchor;
 
-  while (aux != nullptr and aux->data != e) {
+  while (aux != nullptr and aux->getData() != e) {
     aux = aux->getNext();
   }
 
@@ -110,7 +106,7 @@ Node<Fotografo>* ListF::findData(Fotografo e) {
 
 Fotografo ListF::retrieve(Node<Fotografo>* p) {
   if (!isAvalidPos(p)) {
-    throw ListException("Error!, Posicion invalida");
+    throw ListFException("Error!, Posicion invalida");
   }
 
   return p->getData();
@@ -120,7 +116,7 @@ void ListF::print() {
   Node<Fotografo>* aux = anchor;
 
   while (aux != nullptr) {
-    cout << aux->getData() << endl;
+    cout << aux->getDataPtr()->print() << endl;
     aux = aux->getNext();
   }
 

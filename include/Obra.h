@@ -1,14 +1,25 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
+
 #ifndef OBRA_H
 #define OBRA_H
 
 #include <string>
+#include "Fotografo.h"
 
 class Obra {
+private:
+  std::string name;
+  std::string camera;
+  std::string lens;
+  std::string diaphragm;
+  int technique;
+  int shutter;
+  bool locaNeed;
+  bool modelNeed;
+  bool priceNeed;
+  std::string location;
+  std::string model;
+  float price;
+
 public:
   Obra();
   Obra(std::string, std::string, std::string, std::string, int, int, \
@@ -27,6 +38,9 @@ public:
   std::string getLocation() { return location; }
   std::string getModel() { return model; }
   float getPrice() { return price; }
+  std::string getInfo();
+
+  std::string print();
 
   void setPriceNeed(bool val) { priceNeed = val; }
   void setName(std::string val) { name = val; }
@@ -42,22 +56,19 @@ public:
   void setModel(std::string val) { model = val; }
   void setPrice(float val) { price = val; }
 
+  bool operator == (Obra&);
+  bool operator != (Obra&);
+  bool operator <  (Obra&);
+  bool operator <= (Obra&);
+  bool operator >  (Obra&);
+  bool operator >= (Obra&);
+
+  friend ostream& operator << (ostream&, Obra&);
+  friend istream& operator >> (istream&, const Obra&);
+
 protected:
   Fotografo author;
 
-private:
-  std::string name;
-  std::string camera;
-  std::string lens;
-  std::string diaphragm;
-  int technique;
-  int shutter;
-  bool locaNeed;
-  bool modelNeed;
-  bool priceNeed;
-  std::string location;
-  std::string model;
-  float price;
 };
 
 #endif // OBRA_H

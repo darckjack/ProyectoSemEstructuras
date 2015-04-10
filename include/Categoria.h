@@ -1,8 +1,4 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
+
 #ifndef CATEGORIA_H
 #define CATEGORIA_H
 
@@ -17,6 +13,8 @@ public:
 
   void setName(std::string val) { name = val; }
   void setElements(int val) { elements = val; }
+
+  std::string print();
 private:
   std::string name;
   int elements;

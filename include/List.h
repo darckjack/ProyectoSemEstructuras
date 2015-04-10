@@ -1,8 +1,4 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
+
 #ifndef LIST_H_INCLUDED
 #define LIST_H_INCLUDED
 #include <exception>

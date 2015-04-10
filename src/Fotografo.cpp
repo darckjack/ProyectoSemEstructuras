@@ -1,9 +1,5 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
-#include "Fotografo.h"
+
+#include "../include/Fotografo.h"
 #include <string>
 
 using namespace std;
@@ -30,3 +26,41 @@ Fotografo::~Fotografo()
 {
 
 }
+
+string Fotografo::to_s() {
+  return getName();
+}
+
+string Fotografo::print() {
+  return getName();
+}
+
+bool Fotografo::operator == (Fotografo& a){
+  return getName() == a.getName();
+}
+
+bool Fotografo::operator != (Fotografo& a){
+  return getName() != a.getName();
+}
+
+bool Fotografo::operator < (Fotografo& a){
+  return getName() < a.getName();
+}
+
+bool Fotografo::operator <= (Fotografo& a){
+  return getName() <= a.getName();
+}
+
+bool Fotografo::operator > (Fotografo& a){
+  return getName() > a.getName();
+}
+
+bool Fotografo::operator >= (Fotografo& a){
+  return getName() >= a.getName();
+}
+
+ostream& operator << (ostream& os, Fotografo& a){
+  os << a.to_s();
+  return os;
+}
+

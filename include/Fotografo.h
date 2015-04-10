@@ -1,14 +1,21 @@
-/*
-* Nombre: Juan Jesus Gomez Barajas
-* Codigo: 214519467
-* Seccion: D01
-*/
+
 #ifndef FOTOGRAFO_H
 #define FOTOGRAFO_H
 
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 class Fotografo {
+
+private:
+  std::string name;
+  std::string city;
+  std::string phone;
+  int age;
+  int experience;
+
 public:
   Fotografo();
   Fotografo(std::string, std::string, std::string, int, int);
@@ -23,13 +30,19 @@ public:
   void setPhone(std::string val) { phone = val; }
   void setAge(int val) { age = val; }
   void setExperience(int val) { experience = val; }
+  std::string to_s();
+  std::string print();
 
-private:
-  std::string name;
-  std::string city;
-  std::string phone;
-  int age;
-  int experience;
+  bool operator == (Fotografo&);
+  bool operator != (Fotografo&);
+  bool operator <  (Fotografo&);
+  bool operator <= (Fotografo&);
+  bool operator >  (Fotografo&);
+  bool operator >= (Fotografo&);
+
+  friend ostream& operator << (ostream&, const Fotografo&);
+  friend istream& operator >> (istream&, const Fotografo&);
+
 };
 
 #endif // FOTOGRAFO_H
