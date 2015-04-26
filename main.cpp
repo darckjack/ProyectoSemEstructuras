@@ -40,7 +40,7 @@ int main() {
     int OpcionFot, OpcionObr, OpcionCat;
 
     do {
-        system("cls");
+        system(LIMPIAR);
         cout << "   Galeria de arte " << endl << endl;
         cout << " 1.Fotografo\n 2.Obra\n 3.Categoria\n 4.Salir" << endl << endl;
         cout << "Elige una opcion: ";
@@ -52,7 +52,7 @@ int main() {
             int End = 1;
 
             do {
-                system("cls");
+                system(LIMPIAR);
                 cout << "El contenido de la lista es ";
                 myFotList.print();
                 cout << endl << endl;
@@ -102,7 +102,7 @@ int main() {
         break;
 
         case '2': {
-            system("cls");
+            system(LIMPIAR);
             cout << "                 Obras   " << endl << endl;
             cout << " 1.Dar de alta una obra" << endl;
             cout << " 2.Mostrar lista de obras" << endl;
@@ -119,7 +119,7 @@ int main() {
             int End = 1;
 
             do {
-                system("cls");
+                system(LIMPIAR);
                 cout << "El contenido de la lista es: " << endl;
                 myCatList.print();
                 cout << endl;
@@ -171,7 +171,7 @@ void addCat() {
     char opcionadd;
 
     do {
-        system("cls");
+        system(LIMPIAR);
         cout << "Ingrese el nombre de la categoria: ";
         cin.ignore();
         cout<<"aki";
@@ -211,7 +211,7 @@ void addFot () {
     char opcionadd;
 
     do {
-        system("cls");
+        system(LIMPIAR);
         cout << "Nombre: ";
         cin.ignore();
         getline(cin, myStr);
